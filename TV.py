@@ -152,13 +152,14 @@ class VideoDialog(Gtk.Window):
         return self.action_channelsmenu
 
     def msg(self):
-        dialog = Gtk.MessageDialog(self, 0, Gtk.MessageType.INFO,
-            Gtk.ButtonsType.OK, "TV Player")
-        dialog.format_secondary_text(
-            ("©2019 Axel Schneider\n\nShortcuts:\nArrow Left -> Volume down\nArrow Right -> Volume up \
+        infotext = ("©2019 Axel Schneider\n\nShortcuts:\nArrow Left -> Volume down\nArrow Right -> Volume up \
              \nArrow Up -> Channel up\nArrow Down -> Channel down\nKey(1-9) -> Channel (1-9) \
              \nmouse wheel -> zoom in/out \
-              \nm -> toggle mute\nf -> toggle fullscreen\ng -> Quit"))
+              \nm -> toggle mute\nf -> toggle fullscreen\nq -> Quit")
+        print(infotext)
+        dialog = Gtk.MessageDialog(self, 0, Gtk.MessageType.INFO,
+            Gtk.ButtonsType.OK, "TV Player")
+        dialog.format_secondary_text(infotext)
         dialog.run()
         print("INFO dialog closed")
 
@@ -183,33 +184,49 @@ class VideoDialog(Gtk.Window):
             return False
 
     def on_key_press_event(self, widget, event):
-        if event.keyval == Gdk.KEY_1:
-            self.item_activated(self, 1)
-        elif event.keyval == Gdk.KEY_2:
-            self.item_activated(self, 2)
-        elif event.keyval == Gdk.KEY_3:
-            self.item_activated(self, 3)
-        elif event.keyval == Gdk.KEY_4:
-            self.item_activated(self, 4)
-        elif event.keyval == Gdk.KEY_5:
-            self.item_activated(self, 5)
-        elif event.keyval == Gdk.KEY_6:
-            self.item_activated(self, 6)
-        elif event.keyval == Gdk.KEY_7:
-            self.item_activated(self, 7)
-        elif event.keyval == Gdk.KEY_8:
-            self.item_activated(self, 8)
-        elif event.keyval == Gdk.KEY_9:
-            self.item_activated(self, 9)
-        elif event.keyval == Gdk.KEY_0:
-            self.item_activated(self, 10)
-        elif event.keyval == Gdk.KEY_i:
-            self.item_activated(self, 11)
-        elif event.keyval == Gdk.KEY_n:
-            self.item_activated(self, 12)
-        elif event.keyval == Gdk.KEY_w:
-            self.item_activated(self, 13)
-        elif event.keyval == Gdk.KEY_f:
+        if self.HD == False:
+            if event.keyval == Gdk.KEY_1:
+                self.item_activated(self, 1)
+            elif event.keyval == Gdk.KEY_2:
+                self.item_activated(self, 2)
+            elif event.keyval == Gdk.KEY_3:
+                self.item_activated(self, 3)
+            elif event.keyval == Gdk.KEY_4:
+                self.item_activated(self, 4)
+            elif event.keyval == Gdk.KEY_5:
+                self.item_activated(self, 5)
+            elif event.keyval == Gdk.KEY_6:
+                self.item_activated(self, 6)
+            elif event.keyval == Gdk.KEY_7:
+                self.item_activated(self, 7)
+            elif event.keyval == Gdk.KEY_8:
+                self.item_activated(self, 8)
+            elif event.keyval == Gdk.KEY_9:
+                self.item_activated(self, 9)
+            elif event.keyval == Gdk.KEY_0:
+                self.item_activated(self, 10)
+        else:
+            if event.keyval == Gdk.KEY_1:
+                self.item_activatedHD(self, 1)
+            elif event.keyval == Gdk.KEY_2:
+                self.item_activatedHD(self, 2)
+            elif event.keyval == Gdk.KEY_3:
+                self.item_activatedHD(self, 3)
+            elif event.keyval == Gdk.KEY_4:
+                self.item_activatedHD(self, 4)
+            elif event.keyval == Gdk.KEY_5:
+                self.item_activatedHD(self, 5)
+            elif event.keyval == Gdk.KEY_6:
+                self.item_activatedHD(self, 6)
+            elif event.keyval == Gdk.KEY_7:
+                self.item_activatedHD(self, 7)
+            elif event.keyval == Gdk.KEY_8:
+                self.item_activatedHD(self, 8)
+            elif event.keyval == Gdk.KEY_9:
+                self.item_activatedHD(self, 9)
+            elif event.keyval == Gdk.KEY_0:
+                self.item_activatedHD(self, 10)
+        if event.keyval == Gdk.KEY_f:
             self.showFullScreen()
         elif event.keyval == Gdk.KEY_F1:
             self.msg()
