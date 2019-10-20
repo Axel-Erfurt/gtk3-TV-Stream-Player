@@ -1,6 +1,8 @@
 # gtk3-TV-Stream-Player
 Play TV Streams
 
+made and tested in Linux Mint 19.2
+
 ### Requirements
 - python3
 - python gtk3
