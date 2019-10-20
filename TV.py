@@ -118,6 +118,16 @@ class VideoDialog(Gtk.Window):
         sep = Gtk.SeparatorMenuItem()
         self.action_channelsmenu.append(sep)
 
+        img = Gtk.Image()
+        img.set_from_icon_name("browser", 20)
+        self.action_clip = Gtk.ImageMenuItem("play URL from clipboard")
+        self.action_clip.connect("activate", self.playClipboardURL)
+        self.action_clip.set_image(img)
+        self.action_channelsmenu.append(self.action_clip)
+
+        sep = Gtk.SeparatorMenuItem()
+        self.action_channelsmenu.append(sep)
+
         ### HD Submenu
         img = Gtk.Image()
         img.set_from_icon_name("video-display", 20)
@@ -183,6 +193,12 @@ class VideoDialog(Gtk.Window):
         else:
             return False
 
+    def playClipboardURL(self, *args):
+        c = Gtk.Clipboard.get(Gdk.SELECTION_CLIPBOARD)
+        url = c.wait_for_text()
+        print(url)
+        self.playTV(url)
+
     def on_key_press_event(self, widget, event):
         if self.HD == False:
             if event.keyval == Gdk.KEY_1:
@@ -242,6 +258,8 @@ class VideoDialog(Gtk.Window):
             self.channelDown()
         elif event.keyval == Gdk.KEY_q:
             self.handleClose()
+        elif event.keyval == Gdk.KEY_u:
+            self.playClipboardURL()
 
     def channelUp(self):
         if self.HD == False:
