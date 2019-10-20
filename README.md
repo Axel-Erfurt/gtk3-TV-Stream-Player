@@ -31,5 +31,5 @@ will be shown in context submenu 'HD' (and systray submenu 'HD')
 - mouse wheel -> zoom in/out               
 - m -> toggle mute
 - f -> toggle fullscreen
-- g -> Quit
+- q -> Quit
 - F1 -> Info
