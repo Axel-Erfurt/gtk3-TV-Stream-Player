@@ -9,6 +9,7 @@ gi.require_version('AppIndicator3', '0.1')
 from gi.repository import Gtk, Gdk, Gst, Notify, AppIndicator3 as tray
 from os import path
 from sys import argv
+from requests import get as getURL
 
 Gst.init(None)
 Gst.init_check(None)
@@ -91,6 +92,12 @@ class VideoDialog(Gtk.Window):
                 self.ch_namesHD.append(line.partition(",")[0])
                 self.ch_urlsHD.append(line.partition(",")[2])
 
+    def getSport1(self, *args):
+        url = "https://tv.sport1.de/sport1/"
+        r = getURL(url)
+        t = r.text.partition('file: "')[2].partition('"')[0]
+        self.playTV(t)
+
     def item_activated(self, wdg, i):
         print("%s:%s '%s'" %('Channel', i, self.ch_names[i - 1]))
         self.channel = i
@@ -158,6 +165,13 @@ class VideoDialog(Gtk.Window):
             self.action_channelsmenu.append(action_channel)
             action_channel.connect("activate", self.item_activated, x)
 
+        img = Gtk.Image()
+        img.set_from_icon_name("computer", 20)
+        action_sport1 = Gtk.ImageMenuItem("Sport 1")
+        action_sport1.set_image(img)
+        self.action_channelsmenu.append(action_sport1)
+        action_sport1.connect("activate", self.getSport1)
+
         self.action_channelsmenu.show_all()
         return self.action_channelsmenu
 
@@ -165,6 +179,7 @@ class VideoDialog(Gtk.Window):
         infotext = ("©2019 Axel Schneider\n\nShortcuts:\nArrow Left -> Volume down\nArrow Right -> Volume up \
              \nArrow Up -> Channel up\nArrow Down -> Channel down\nKey(1-9) -> Channel (1-9) \
              \nmouse wheel -> zoom in/out \
+              \nu -> play URL from clipboard \
               \nm -> toggle mute\nf -> toggle fullscreen\nq -> Quit")
         print(infotext)
         dialog = Gtk.MessageDialog(self, 0, Gtk.MessageType.INFO,
@@ -196,6 +211,8 @@ class VideoDialog(Gtk.Window):
     def playClipboardURL(self, *args):
         c = Gtk.Clipboard.get(Gdk.SELECTION_CLIPBOARD)
         url = c.wait_for_text()
+        if path.isfile(url):
+            url = "%s%s" % ("file://", url)
         print(url)
         self.playTV(url)
 
