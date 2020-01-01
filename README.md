@@ -5,7 +5,7 @@ made and tested in Linux Mint 19.2
 
 ### Requirements
 - python3
-- python gtk3
+- python3 Gtk, Gdk, Gst
 
 ### Usage
 
