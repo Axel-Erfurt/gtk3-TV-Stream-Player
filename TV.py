@@ -4,9 +4,7 @@ import gi
 gi.require_version("Gtk", "3.0")
 gi.require_version("Gst", "1.0")
 gi.require_version('Gdk', '3.0')
-gi.require_version('Notify', '0.7')
-gi.require_version('AppIndicator3', '0.1')
-from gi.repository import Gtk, Gdk, Gst, Notify, AppIndicator3 as tray
+from gi.repository import Gtk, Gdk, Gst
 from os import path
 from sys import argv
 from requests import get as getURL
@@ -52,6 +50,10 @@ class VideoDialog(Gtk.Window):
 
         self.add(self.playerWidget)
 
+        enforce_target = Gtk.TargetEntry.new('text/plain', Gtk.TargetFlags(4), 129)
+        self.drag_dest_set(Gtk.DestDefaults.ALL, [enforce_target], Gdk.DragAction.COPY)
+        self.connect("drag-data-received", self.on_drag_data_received)
+
         self.set_events (Gdk.EventMask.ALL_EVENTS_MASK)
         self.connect("destroy",Gtk.main_quit)
         self.connect('scroll-event', self.my_zoom)
@@ -62,8 +64,6 @@ class VideoDialog(Gtk.Window):
 
         self.channel = 0
         self.HD = False
-
-        Notify.init("TV")
 
         self.show_all()
         self.get_window().set_cursor(Gdk.Cursor(Gdk.CursorType.HAND2))
@@ -91,6 +91,12 @@ class VideoDialog(Gtk.Window):
             for line in self.chlistHD:
                 self.ch_namesHD.append(line.partition(",")[0])
                 self.ch_urlsHD.append(line.partition(",")[2])
+                
+        self.create_menu()
+
+    def on_drag_data_received(self, widget, drag_context, x,y, data,info, time):
+        url = data.get_text()
+        self.playTV(url)
 
     def getSport1(self, *args):
         url = "https://tv.sport1.de/sport1/"
@@ -101,14 +107,12 @@ class VideoDialog(Gtk.Window):
     def item_activated(self, wdg, i):
         print("%s:%s '%s'" %('Channel', i, self.ch_names[i - 1]))
         self.channel = i
-        Notify.Notification.new(self.ch_names[i - 1]).show()
         self.playTV(self.ch_urls[i - 1])
         self.HD = False
 
     def item_activatedHD(self, wdg, i):
         print("%s:%s '%s'" %('Channel', i, self.ch_namesHD[i - 1]))
         self.channel = i
-        Notify.Notification.new(self.ch_namesHD[i - 1]).show()
         self.playTV(self.ch_urlsHD[i - 1])
         self.HD = True
 
@@ -301,14 +305,14 @@ class VideoDialog(Gtk.Window):
     def moreVolume(self):
         v = float(self.player.get_property("volume"))
         if v < 1.0:
-            v = v + 0.1
+            v = round(v + 0.1, 2)
             self.player.set_property("volume", v)
             print("changed volume to", v)
 
     def lessVolume(self):
         v = float(self.player.get_property("volume"))
         if v > 0.1:
-            v = v - 0.1
+            v = round(v - 0.1, 2)
             self.player.set_property("volume", v)
             print("changed volume to", v)
 
@@ -327,14 +331,15 @@ class VideoDialog(Gtk.Window):
                 self.resize(w - 30, (w - 30) / 1.777777778)
 
     def handleClose(self):
-        Notify.Notification.new("Goodbye ...").show()
+        print("Goodbye ...")
         Gtk.main_quit()
 
     def playTV(self, url, *args):
         self.player.set_state(Gst.State.NULL)
-        print("url=", url)
+        print("url =", url)
         self.player.set_property("uri", url)
-        self.player.set_property("buffer-size", 3*1048576) # 3MB
+        self.player.set_property("buffer-size", 4*1048576) # 4MB
+        print("setting buffer to 4MB")
         self.player.set_state(Gst.State.PLAYING)
 
     def toggleMute(self):
@@ -361,9 +366,6 @@ class VideoDialog(Gtk.Window):
 
 win = VideoDialog()
 print("Welcome to gtk TV Player")
-indicator = tray.Indicator.new("TV Tray", "computer", tray.IndicatorCategory.APPLICATION_STATUS)
-indicator.set_status(tray.IndicatorStatus.ACTIVE)
-indicator.set_menu(win.create_menu())
 win.connect("destroy", Gtk.main_quit)
-win.item_activated(win, 1)
+win.item_activated(win, 2)
 Gtk.main()
