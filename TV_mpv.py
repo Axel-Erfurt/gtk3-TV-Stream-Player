@@ -4,29 +4,12 @@ import gi
 gi.require_version("Gtk", "3.0")
 gi.require_version("Gst", "1.0")
 gi.require_version('Gdk', '3.0')
-from gi.repository import Gtk, Gdk, Gst
+from gi.repository import Gtk, Gdk
 from os import path
 from sys import argv
-
-Gst.init(None)
-Gst.init_check(None)
-
-class PlayerWidget(Gtk.Box):
-    def __init__(self, parent):
-        super(PlayerWidget, self).__init__()
-        self.parent = parent
-        self.player = Gst.ElementFactory.make("playbin", "player")
-
-        self.connect('realize', self.on_realize_gst)
-
-    def on_realize_gst(self, widget):
-        playerFactory = self.player.get_factory()
-        gtksink = playerFactory.make('gtksink')
-        self.player.set_property("video-sink", gtksink)
-
-        self.pack_start(gtksink.props.widget, True, True, 0)
-        gtksink.props.widget.show()
-
+import mpv
+import locale
+locale.setlocale(locale.LC_NUMERIC, 'C')
 
 class VideoDialog(Gtk.Window):
     def __init__(self, parent=None):
@@ -49,13 +32,12 @@ class VideoDialog(Gtk.Window):
 
         self.set_default_size(500, 500 / 1.777777778)
 
-        self.playerWidget = PlayerWidget(self)
+        self.playerWidget = Gtk.Frame()
         self.playerWidget.set_vexpand(True)
         self.playerWidget.set_hexpand(True)
 
-        self.player = self.playerWidget.player
-
         self.add(self.playerWidget)
+    
 
         enforce_target = Gtk.TargetEntry.new('text/plain', Gtk.TargetFlags(4), 129)
         self.drag_dest_set(Gtk.DestDefaults.ALL, [enforce_target], Gdk.DragAction.COPY)
@@ -74,7 +56,7 @@ class VideoDialog(Gtk.Window):
 
         self.show_all()
         self.get_window().set_cursor(Gdk.Cursor(Gdk.CursorType.HAND2))
-
+        self.mpv = mpv.MPV(wid=str(self.playerWidget.get_property("window").get_xid()), input_cursor=False)
         ### SD List
         self.channelsfile = path.join(path.dirname(argv[0]), "channels.txt")
 
@@ -325,12 +307,7 @@ class VideoDialog(Gtk.Window):
         Gtk.main_quit()
 
     def playTV(self, url, *args):
-        self.player.set_state(Gst.State.NULL)
-        print("url =", url)
-        self.player.set_property("uri", url)
-        self.player.set_property("buffer-size", 4*1048576) # 4MB
-        print("setting buffer to 4MB")
-        self.player.set_state(Gst.State.PLAYING)
+        self.mpv.play(url)
 
     def toggleMute(self):
         if self.player.get_property("mute") == False:

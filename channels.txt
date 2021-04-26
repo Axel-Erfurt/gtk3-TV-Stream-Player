@@ -1,27 +1,17 @@
-3SAT,https://zdfhls18-i.akamaihd.net/hls/live/744751/dach/2/2.m3u8
-ARD,https://mcdn.daserste.de/daserste/de/master_1184.m3u8
-ARD ALPHA,http://brlive-lh.akamaihd.net/i/bralpha_germany@119899/index_1216_av-p.m3u8?sd=10&rebase=on
-ARD ONE,http://onelivestream-lh.akamaihd.net/i/one_livestream@568814/index_2_av-p.m3u8?sd=10&rebase=on
-ARD TAGESSCHAU,http://tagesschau-lh.akamaihd.net/i/tagesschau_1@119231/index_1152_av-p.m3u8?sd=10&rebase=on
-ARTE DE,http://artelive-lh.akamaihd.net/i/artelive_de@393591/index_3_av-p.m3u8?sd=10&rebase=on
-ARTE FR,http://artelive-lh.akamaihd.net/i/artelive_fr@344805/index_3_av-p.m3u8?sd=10&rebase=on
-BR NORD,http://brlive-lh.akamaihd.net/i/bfsnord_germany@119898/index_1216_av-p.m3u8?sd=10&rebase=on
-DW,http://dwstream6-lh.akamaihd.net/i/dwstream6_live@123962/index_2_av-p.m3u8?sd=10&rebase=on
-HR,http://hrlive1-lh.akamaihd.net/i/hr_fernsehen@75910/index_1024_av-p.m3u8?sd=10&rebase=on
-KIKA,http://kikade-lh.akamaihd.net/i/livetvkika_de@450035/index_1216_av-p.m3u8?sd=10&rebase=on
-MDR SACHSEN-ANHALT,http://mdrsahls-lh.akamaihd.net/i/livetvmdrsachsenanhalt_de@513999/index_1216_av-p.m3u8?sd=10&rebase=on
-MDR SACHSEN,http://mdrsnhls-lh.akamaihd.net/i/livetvmdrsachsen_de@513998/index_1216_av-p.m3u8?sd=10&rebase=on
-MDR THÜRINGEN,http://mdrthuhls-lh.akamaihd.net/i/livetvmdrthueringen_de@514027/index_1216_av-p.m3u8?sd=10&rebase=on
-NDR,http://ndrfs-lh.akamaihd.net/i/ndrfs_nds@430233/index_1216_av-p.m3u8?sd=10&rebase=on
-PHOENIX,https://zdfhls19-i.akamaihd.net/hls/live/744752/de/2/2.m3u8
-RBB BERLIN,http://rbblive-lh.akamaihd.net/i/rbb_berlin@144674/index_2_av-p.m3u8?sd=10&rebase=on
-RBB BRANDENBURG,http://rbblive-lh.akamaihd.net/i/rbb_brandenburg@349369/index_2_av-p.m3u8?sd=10&rebase=on
-SERVUS TV,https://rbmn-live.akamaized.net/hls/live/2002830/geoSTVDEweb/master_596.m3u8
-SKY SPORT NEWS,https://eventhlshttps-i.akamaihd.net/hls/live/263645/ssn-hd-https/indexvideo-1500.m3u8
-SR,http://srlive24-lh.akamaihd.net/i/sr_universal02@107595/index_1128_av-p.m3u8?sd=10&rebase=on
-SWR,https://swrbwhls-i.akamaihd.net/hls/live/667638/swrbwd/master_1216.m3u8
-WDR,http://wdrfsgeo-lh.akamaihd.net/i/wdrfs_geogeblockt@530016/index_1216_av-p.m3u8?sd=10&rebase=on
-WELT,https://live2weltcms-lh.akamaihd.net/i/Live2WeltCMS_1@444563/index_3_av-p.m3u8?sd=10&rebase=on
-ZDF,https://zdf-hls-01.akamaized.net/hls/live/2002460/de/ec5c90c57223874232064f8344a09cb5/2/2.m3u8
-ZDF INFO,https://zdfhls17-i.akamaihd.net/hls/live/744750/de/2/2.m3u8
-ZDF NEO,https://zdf-hls-02.akamaized.net/hls/live/2002461/de/3f34e1738d67703b67f7aa9c17bb0a46/2/2.m3u8
+ARD SD,http://mcdn.daserste.de/daserste/de/master_1028.m3u8
+ZDF SD,http://zdf-hls-15.akamaized.net/hls/live/2016498/de/low/master.m3u8
+MDR TH SD,https://mdrtvthhls.akamaized.net/hls/live/2016880/mdrtvth/master_640x360.m3u8
+Phoenix SD,http://zdf-hls-19.akamaized.net/hls/live/2016502/de/low/master.m3u8
+RBB SD,http://rbblive-lh.akamaihd.net/i/rbb_berlin@144674/index_3_av-p.m3u8?sd=10&rebase=on
+BR SD,http://mcdn.br.de/bfs_sued/de/profile3/3.m3u8
+HR SD,https://hrhls.akamaized.net/hls/live/2024525/hrhls/master-360.m3u8
+Arte SD,http://artelive-lh.akamaihd.net/i/artelive_de@393591/index_3_av-b.m3u8?sd=10&rebase=on
+3 Sat SD,http://zdf-hls-18.akamaized.net/hls/live/2016501/dach/high/master.m3u8
+Welt,https://live2weltcms-lh.akamaihd.net/i/Live2WeltCMS_1@444563/index_1_av-b.m3u8
+ONE SD,http://onelivestream-lh.akamaihd.net/i/one_livestream@568814/index_3_av-b.m3u8?sd=10&rebase=on
+ZDF neo SD,http://zdf-hls-16.akamaized.net/hls/live/2016499/de/low/master.m3u8
+ZDF info SD,http://zdf-hls-17.akamaized.net/hls/live/2016500/de/low/master.m3u8
+NDR SD,https://mcdn.ndr.de/ndr/hls/ndr_fs/ndr_nds/master_360.m3u8
+WDR SD,http://wdrfsgeo-lh.akamaihd.net/i/wdrfs_geogeblockt@530016/index_1028_av-p.m3u8?sd=10&rebase=on
+Tagesschau SD,http://tagesschau-lh.akamaihd.net/i/tagesschau_1@119231/index_1216_av-b.m3u8?sd=10&rebase=on
+Alpha SD,http://brlive-lh.akamaihd.net/i/bralpha_germany@119899/index_3_av-b.m3u8?sd=10&rebase=on
