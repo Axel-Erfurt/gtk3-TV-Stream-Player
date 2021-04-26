@@ -33,6 +33,7 @@ class VideoDialog(Gtk.Window):
         self.set_default_size(500, 500 / 1.777777778)
 
         self.playerWidget = Gtk.Frame()
+        self.playerWidget.set_name("player")
         self.playerWidget.set_vexpand(True)
         self.playerWidget.set_hexpand(True)
 
@@ -331,5 +332,5 @@ class VideoDialog(Gtk.Window):
 win = VideoDialog()
 print("Welcome to gtk TV Player")
 win.connect("destroy", Gtk.main_quit)
-win.item_activated(win, 1)
+#win.item_activated(win, 1)
 Gtk.main()
