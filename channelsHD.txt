@@ -17,7 +17,6 @@ HR,http://hrlive1-lh.akamaihd.net/i/hr_fernsehen@75910/master.m3u8
 SR,http://srlive24-lh.akamaihd.net/i/sr_universal02@107595/master.m3u8
 SWR RP,https://swrrphls-i.akamaihd.net/hls/live/667639/swrrpd/master.m3u8
 SWR BW,https://swrbwhls-i.akamaihd.net/hls/live/667638/swrbwd/master.m3u8
-Livestream SWR Extra: Trauer um Hans Küng,https://swrevent03uni-lh.akamaihd.net/i/swr_event03@863151/index_1800_av-p.m3u8
 NDR,http://ndrfs-lh.akamaihd.net/i/ndrfs_nds@430233/master.m3u8
 NDR Fernsehen,https://ndrfs-lh.akamaihd.net/i/ndrfs_nds@430233/index_1992_av-b.m3u8
 NDR Hamburg,https://ndrfs-lh.akamaihd.net/i/ndrfs_hh@430231/master.m3u8
