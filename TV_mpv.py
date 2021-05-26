@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 import gi
 gi.require_version("Gtk", "3.0")
-gi.require_version("Gst", "1.0")
 gi.require_version('Gdk', '3.0')
 from gi.repository import Gtk, Gdk
 from os import path
@@ -23,14 +22,12 @@ class VideoDialog(Gtk.Window):
             Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
         )
 
-        img = "computer"
-        self.set_icon_name(img)
+        self.set_icon_from_file("icon20.png")
         self.set_decorated(False)
         self.set_keep_above(True) 
         self.set_border_width(0)
-        #self.modify_bg(Gtk.StateType.NORMAL, Gdk.color_parse("black"))
 
-        self.set_default_size(500, 500 / 1.777777778)
+        self.set_default_size(500, 281)
 
         self.playerWidget = Gtk.Frame()
         self.playerWidget.set_name("player")
@@ -57,7 +54,7 @@ class VideoDialog(Gtk.Window):
 
         self.show_all()
         self.get_window().set_cursor(Gdk.Cursor(Gdk.CursorType.HAND2))
-        self.mpv = mpv.MPV(wid=str(self.playerWidget.get_property("window").get_xid()), input_cursor=False)
+        self.player = mpv.MPV(wid=str(self.playerWidget.get_property("window").get_xid()), input_cursor=False)
         ### SD List
         self.channelsfile = path.join(path.dirname(argv[0]), "channels.txt")
 
@@ -83,20 +80,23 @@ class VideoDialog(Gtk.Window):
                 self.ch_urlsHD.append(line.partition(",")[2])
                 
         self.create_menu()
+        
 
     def on_drag_data_received(self, widget, drag_context, x,y, data,info, time):
         url = data.get_text()
         self.playTV(url)
 
     def item_activated(self, wdg, i):
-        print("%s:%s '%s'" %('Channel', i, self.ch_names[i - 1]))
+        print(f"Channel {i}: {self.ch_names[i - 1]}\nURL: {self.ch_urls[i - 1]}")
         self.channel = i
+        self.player.show_text(self.ch_names[i - 1], 5000)
         self.playTV(self.ch_urls[i - 1])
         self.HD = False
 
     def item_activatedHD(self, wdg, i):
-        print("%s:%s '%s'" %('Channel', i, self.ch_namesHD[i - 1]))
+        print(f"Channel {i}: {self.ch_namesHD[i - 1]} HD\nURL: {self.ch_urlsHD[i - 1]}")
         self.channel = i
+        self.player.show_text(f"{self.ch_namesHD[i - 1]} HD", 5000)
         self.playTV(self.ch_urlsHD[i - 1])
         self.HD = True
 
@@ -104,7 +104,7 @@ class VideoDialog(Gtk.Window):
         self.action_channelsmenu = Gtk.Menu()
 
         img = Gtk.Image()
-        img.set_from_icon_name("window-close", 20)
+        img.set_from_icon_name("application-exit", 20)
         self.action_filequit = Gtk.ImageMenuItem(label="Quit", image=img)
         self.action_filequit.connect("activate", Gtk.main_quit)
         self.action_channelsmenu.append(self.action_filequit)
@@ -113,7 +113,7 @@ class VideoDialog(Gtk.Window):
         self.action_channelsmenu.append(sep)
 
         img = Gtk.Image()
-        img.set_from_icon_name("browser", 20)
+        img.set_from_icon_name("applications-internet", 20)
         self.action_clip = Gtk.ImageMenuItem(label="play URL from clipboard", image=img)
         self.action_clip.connect("activate", self.playClipboardURL)
         self.action_channelsmenu.append(self.action_clip)
@@ -133,20 +133,22 @@ class VideoDialog(Gtk.Window):
         ### HD
         for x in range(1, len(self.chlistHD) + 1):
             img = Gtk.Image()
-            img.set_from_icon_name("video-display", 20)
-            action_channelHD = Gtk.ImageMenuItem(label=self.ch_namesHD[x - 1], image=img)
-            self.sub_menu.append(action_channelHD)
-            action_channelHD.connect("activate", self.item_activatedHD, x)
+            img.set_from_file("icon20.png")
+            if self.ch_namesHD[x - 1]:
+                action_channelHD = Gtk.ImageMenuItem(label=self.ch_namesHD[x - 1], image=img)
+                self.sub_menu.append(action_channelHD)
+                action_channelHD.connect("activate", self.item_activatedHD, x)
 
         HDMenu.set_submenu(self.sub_menu)
 
         ### SD
         for x in range(1, len(self.chlist) + 1):
             img = Gtk.Image()
-            img.set_from_icon_name("computer", 20)
-            action_channel = Gtk.ImageMenuItem(label=self.ch_names[x - 1], image=img)
-            self.action_channelsmenu.append(action_channel)
-            action_channel.connect("activate", self.item_activated, x)
+            img.set_from_file("icon20.png")
+            if self.ch_names[x - 1]:
+                action_channel = Gtk.ImageMenuItem(label=self.ch_names[x - 1], image=img)
+                self.action_channelsmenu.append(action_channel)
+                action_channel.connect("activate", self.item_activated, x)
 
         self.action_channelsmenu.show_all()
         return self.action_channelsmenu
@@ -277,18 +279,20 @@ class VideoDialog(Gtk.Window):
                 self.item_activatedHD(self, self.channel)
 
     def moreVolume(self):
-        v = float(self.player.get_property("volume"))
-        if v < 1.0:
-            v = round(v + 0.1, 2)
-            self.player.set_property("volume", v)
+        v = self.player.volume
+        if v < 150:
+            v += 5
+            self.player.volume = v
             print("changed volume to", v)
+            self.player.show_text(f"Volume {v}")
 
     def lessVolume(self):
-        v = float(self.player.get_property("volume"))
-        if v > 0.1:
-            v = round(v - 0.1, 2)
-            self.player.set_property("volume", v)
+        v = self.player.volume
+        if v < 151 and v > 5:
+            v -= 5
+            self.player.volume = v
             print("changed volume to", v)
+            self.player.show_text(f"Volume {v}")
 
     def on_window_state_event(self, widget, ev):
         self.__is_fullscreen = bool(ev.new_window_state & Gdk.WindowState.FULLSCREEN)
@@ -308,14 +312,17 @@ class VideoDialog(Gtk.Window):
         Gtk.main_quit()
 
     def playTV(self, url, *args):
-        self.mpv.play(url)
+        self.player.play(url)
 
     def toggleMute(self):
-        if self.player.get_property("mute") == False:
-            self.player.set_property("mute", True)
+        if self.player.mute == False:
+            self.player.mute = True
+            self.player.show_text("muted", duration = 3000)
+            #("icon20.png")
             print("muted")
         else:
-            self.player.set_property("mute", False)
+            self.player.mute = False
+            self.player.show_text("not muted", duration = 3000)
             print("unmuted")
 
     def showFullScreen(self):
@@ -332,5 +339,4 @@ class VideoDialog(Gtk.Window):
 win = VideoDialog()
 print("Welcome to gtk TV Player")
 win.connect("destroy", Gtk.main_quit)
-#win.item_activated(win, 1)
 Gtk.main()

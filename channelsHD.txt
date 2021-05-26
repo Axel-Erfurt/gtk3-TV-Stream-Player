@@ -1,36 +1,26 @@
-ARD,http://mcdn.daserste.de/daserste/de/master.m3u8
-ARD ONE,http://onelivestream-lh.akamaihd.net/i/one_livestream@568814/master.m3u8
-ARD Alpha,http://brlive-lh.akamaihd.net/i/bralpha_germany@119899/master.m3u8
-ARD Tagesschau,http://tagesschau-lh.akamaihd.net/i/tagesschau_1@119231/master.m3u8
+Das Erste,https://mcdn.daserste.de/daserste/de/master.m3u8
 ZDF,http://zdf-hls-15.akamaized.net/hls/live/2016498/de/high/master.m3u8
-ZDF neo,http://zdf-hls-16.akamaized.net/hls/live/2016499/de/high/master.m3u8
 ZDF info,http://zdf-hls-17.akamaized.net/hls/live/2016500/de/high/master.m3u8
-MDR Sachsen,https://mdrtvsnhls.akamaized.net/hls/live/2016928/mdrtvsn/master.m3u8
-MDR Sachsen-Anhalt,https://mdrtvsahls.akamaized.net/hls/live/2016879/mdrtvsa/master.m3u8
-MDR Thüringen,https://mdrtvthhls.akamaized.net/hls/live/2016880/mdrtvth/master.m3u8
-PHOENIX,http://zdf-hls-19.akamaized.net/hls/live/2016502/de/high/master.m3u8
-RBB Berlin,http://rbblive-lh.akamaihd.net/i/rbb_berlin@144674/master.m3u8
-RBB Brandenburg,http://rbblive-lh.akamaihd.net/i/rbb_brandenburg@349369/master.m3u8
-BR Süd,http://mcdn.br.de/bfs_sued/de/master.m3u8
-BR Nord,http://brlive-lh.akamaihd.net/i/bfsnord_germany@119898/master.m3u8
-HR,http://hrlive1-lh.akamaihd.net/i/hr_fernsehen@75910/master.m3u8
-SR,http://srlive24-lh.akamaihd.net/i/sr_universal02@107595/master.m3u8
-SWR RP,https://swrrphls-i.akamaihd.net/hls/live/667639/swrrpd/master.m3u8
-SWR BW,https://swrbwhls-i.akamaihd.net/hls/live/667638/swrbwd/master.m3u8
-NDR,http://ndrfs-lh.akamaihd.net/i/ndrfs_nds@430233/master.m3u8
-NDR Fernsehen,https://ndrfs-lh.akamaihd.net/i/ndrfs_nds@430233/index_1992_av-b.m3u8
-NDR Hamburg,https://ndrfs-lh.akamaihd.net/i/ndrfs_hh@430231/master.m3u8
-NDR Niedersachsen,https://mcdn.ndr.de/ndr/hls/ndr_fs/ndr_nds/master.m3u8
-NDR Mecklenburg-Vorpommern,https://mcdn.ndr.de/ndr/hls/ndr_fs/ndr_mv/master.m3u8
-NDR Schleswig-Holstein,https://ndrfs-lh.akamaihd.net/i/ndrfs_sh@430234/master.m3u8
-NDR Fernsehen Schleswig-Holstein,https://ndrfs-lh.akamaihd.net/i/ndrfs_sh@430234/index_1992_av-b.m3u8
-DW,http://dwstream6-lh.akamaihd.net/i/dwstream6_live@123962/master.m3u8
-WDR,http://wdrfsgeo-lh.akamaihd.net/i/wdrfs_geogeblockt@530016/master.m3u8
-ARTE FR,http://artelive-lh.akamaihd.net/i/artelive_fr@344805/master.m3u8
-ARTE DE,http://artelive-lh.akamaihd.net/i/artelive_de@393591/master.m3u8
-3Sat,http://zdf-hls-18.akamaized.net/hls/live/2016501/dach/high/master.m3u8
-kika,https://kikageohls.akamaized.net/hls/live/2022693/livetvkika_de/master.m3u8
+ZDF neo,http://zdf-hls-16.akamaized.net/hls/live/2016499/de/high/master.m3u8
+BR Fernsehen,https://mcdn.br.de/bfs_sued/de/master.m3u8
+hr-fernsehen,https://hrhls.akamaized.net/hls/live/2024525/hrhls/index.m3u8
+MDR,https://mdrtvsnhls.akamaized.net/hls/live/2016928/mdrtvsn/master.m3u8
+NDR Fernsehen,https://mcdn.ndr.de/ndr/hls/ndr_fs/ndr_nds/master.m3u8
+Radio Bremen,https://rbhlslive.akamaized.net/hls/live/2020435/rbfs/master.m3u8
+rbb,https://rbblive-lh.akamaihd.net/i/rbb_brandenburg@349369/master.m3u8
+SR,https://srlive24-lh.akamaihd.net/i/sr_universal02@107595/master.m3u8
+SWR,https://swrbwhls-i.akamaihd.net/hls/live/667638/swrbwd/master.m3u8
+WDR,https://mcdn.wdr.de/wdr/wdrfs/de/master.m3u8
+ONE,https://onelivestream-lh.akamaihd.net/i/one_livestream@568814/master.m3u8
+ARD-alpha,https://brlive-lh.akamaihd.net/i/bralpha_germany@119899/master.m3u8
+arte,https://artelive-lh.akamaihd.net/i/artelive_de@393591/master.m3u8
+3sat,https://zdf-hls-18.akamaized.net/hls/live/2016501/dach/high/master.m3u8
+KiKA,https://kikageohls.akamaized.net/hls/live/2022693/livetvkika_de/master.m3u8
+Phoenix,https://zdf-hls-19.akamaized.net/hls/live/2016502/de/high/master.m3u8
+tagesschau24,https://tagesschau-lh.akamaihd.net/i/tagesschau_1@119231/master.m3u8
+Deutsche Welle,https://dwstream72-lh.akamaihd.net/i/dwstream72_live@123556/master.m3u8
 ORF-1,https://orf1.mdn.ors.at/out/u/orf1/qxb/manifest.m3u8
 ORF-2,https://orf2.mdn.ors.at/out/u/orf2/qxb/manifest.m3u8
 ORF-3,https://orf3.mdn.ors.at/out/u/orf3/qxb/manifest.m3u8
 ORF-Sport,https://orfs.mdn.ors.at/out/u/orfs/qxb/manifest.m3u8
+

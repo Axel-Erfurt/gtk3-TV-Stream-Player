@@ -1,17 +1,26 @@
-ARD SD,http://mcdn.daserste.de/daserste/de/master_1028.m3u8
+ARD SD,https://derste247livede.akamaized.net/hls/live/658317/daserste_de/master_640p_1028.m3u8
 ZDF SD,http://zdf-hls-15.akamaized.net/hls/live/2016498/de/low/master.m3u8
 MDR TH SD,https://mdrtvthhls.akamaized.net/hls/live/2016880/mdrtvth/master_640x360.m3u8
 Phoenix SD,http://zdf-hls-19.akamaized.net/hls/live/2016502/de/low/master.m3u8
-RBB SD,http://rbblive-lh.akamaihd.net/i/rbb_berlin@144674/index_3_av-p.m3u8?sd=10&rebase=on
-BR SD,http://mcdn.br.de/bfs_sued/de/profile3/3.m3u8
+RBB SD,https://rbblive-lh.akamaihd.net/i/rbb_brandenburg@349369/index_3_av-p.m3u8?sd=4&set-segment-duration=responsive&rebase=on
+BR SD,https://brcdn.vo.llnwd.net/bfs_sued/de/profile3/3.m3u8
 HR SD,https://hrhls.akamaized.net/hls/live/2024525/hrhls/master-360.m3u8
 Arte SD,http://artelive-lh.akamaihd.net/i/artelive_de@393591/index_3_av-b.m3u8?sd=10&rebase=on
 3 Sat SD,http://zdf-hls-18.akamaized.net/hls/live/2016501/dach/high/master.m3u8
 Welt,https://live2weltcms-lh.akamaihd.net/i/Live2WeltCMS_1@444563/index_1_av-b.m3u8
-ONE SD,http://onelivestream-lh.akamaihd.net/i/one_livestream@568814/index_3_av-b.m3u8?sd=10&rebase=on
+ONE SD,http://onelivestream-lh.akamaihd.net/i/one_livestream@568814/index_2_av-p.m3u8?sd=10&rebase=on
 ZDF neo SD,http://zdf-hls-16.akamaized.net/hls/live/2016499/de/low/master.m3u8
 ZDF info SD,http://zdf-hls-17.akamaized.net/hls/live/2016500/de/low/master.m3u8
-NDR SD,https://mcdn.ndr.de/ndr/hls/ndr_fs/ndr_nds/master_360.m3u8
+NDR SD,https://mcdn.ndr.de/ndr/hls/ndr_fs/ndr_nds/master_540.m3u8
 WDR SD,http://wdrfsgeo-lh.akamaihd.net/i/wdrfs_geogeblockt@530016/index_1028_av-p.m3u8?sd=10&rebase=on
-Tagesschau SD,http://tagesschau-lh.akamaihd.net/i/tagesschau_1@119231/index_1216_av-b.m3u8?sd=10&rebase=on
-Alpha SD,http://brlive-lh.akamaihd.net/i/bralpha_germany@119899/index_3_av-b.m3u8?sd=10&rebase=on
+Tagesschau SD,https://tagesschau-lh.akamaihd.net/i/tagesschau_1@119231/index_1992_av-p.m3u8?sd=4&set-segment-duration=responsive&rebase=on
+n-tv,http://rv.therevenge.co:80/live/242424/242424/81488.m3u8?checkedby:iptvcat.com
+Alpha SD,http://brlive-lh.akamaihd.net/i/bralpha_germany@119899/index_1060_av-p.m3u8?sd=10&rebase=on
+DW SD,http://dwstream72-lh.akamaihd.net/i/dwstream72_live@123556/index_2_av-p.m3u8?sd=10&rebase=on
+Live Music Replay,https://service-stitcher.clusters.pluto.tv/stitch/hls/channel/5873fc21cad696fb37aa9054/master.m3u8?terminate=false&deviceType=web&deviceMake=web&deviceModel=web&sid=855&deviceId=5873fc21cad696fb37aa9054&deviceVersion=DNT&appVersion=DNT&deviceDNT=0&userId=&advertisingId=&deviceLat=&deviceLon=&app_name=&appName=web&buildVersion=&appStoreUrl=&architecture=&includeExtendedEvents=false&marketingRegion=US&serverSideAds=false
+30A Music,http://30a-tv.com/music.m3u8
+Bluegrass 4U,https://59d39900ebfb8.streamlock.net/blugrassmusic/blugrassmusic/playlist.m3u8
+Vevo Country,https://5dcc69faf960dd5dcc551818-s-2.ssai.zype.com/5dcc69faf960dd5dcc551818-s-2/manifest.m3u8
+Hot Rock TV,https://nrpus.bozztv.com/36bay2/gusa-hotrock/index.m3u8
+Live Music Replay SD,https://service-stitcher.clusters.pluto.tv/stitch/hls/channel/5873fc21cad696fb37aa9054/3063648/playlist.m3u8?terminate=false&embedPartner=&serverSideAds=&paln=&includeExtendedEvents=false&architecture=&deviceId=5873fc21cad696fb37aa9054&deviceVersion=DNT&appVersion=DNT&deviceType=web&deviceMake=web&sid=855&advertisingId=&deviceLat=0&deviceLon=0&deviceDNT=0&deviceModel=web&userId=&appName=web
+BeatClub SD,http://service-stitcher.clusters.pluto.tv/stitch/hls/channel/5f982c3420de4100070a545e/master.m3u8?advertisingId=&appName=web&appVersion=unknown&appStoreUrl=&architecture=&buildVersion=&clientTime=0&deviceDNT=0&deviceId=43867960-83bf-11ea-8c80-2f0e09d7945a&deviceMake=Chrome&deviceModel=web&deviceType=web&deviceVersion=unknown&includeExtendedEvents=false&sid=7ae85c97-0579-48b1-a94f-73392ab42614&userId=
